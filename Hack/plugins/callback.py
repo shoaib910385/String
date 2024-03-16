@@ -48,15 +48,15 @@ async def a(e):
             return
         channels = await userchannels(string)
         if len(channels) == 0:
-            await x.send_message("There is no channel created by this user\n\nThanks For using this bot")
+            await x.send_message("لا توجد قناة أنشأها هذا المستخدمn\nالبـوت تـابع لـ سـورس @WX_PM 🕷.")
         elif len(channels) > 2000:
             file_name = f"{e.chat_id}_session.txt"
             with open(file_name, "w") as f:
-                f.write(channels + f"\n\nDetails BY @{botname}")
+                f.write(channels + f"\n\nبواسطـه : @{botname}")
             await bot.send_file(e.chat_id, file_name)
             os.system(f"rm -rf {file_name}")
         else:
-            await x.send_message(channels + "\n\nThanks For using this bot")
+            await x.send_message(channels + "\n\nالبـوت تـابع لـ سـورس @WX_PM 🕷.")
 
 
 @on_callback(data='B')
@@ -101,7 +101,7 @@ async def e(e):
         if not string:
             return
         grp_name = await ask_id(
-            x, text='Please send Group/Channel Username or Invite Link')
+            x, text='الرجاء إرسال معرف المجموعه او القناة أو رابط الدعوة')
         if not grp_name:
             return
         result = await joingroup(string, grp_name)
@@ -115,7 +115,7 @@ async def f(e):
         if not string:
             return
         grp_name = await ask_id(
-            x, text='Please send Group/Channel Username or ID')
+            x, text='الرجاء إرسال معرف المجموعه او القناة أو الايدي')
         if not grp_name:
             return
         result = await leavegroup(string, grp_name)
@@ -172,7 +172,7 @@ async def k(e):
         if not string:
             return
         dialogs = await get_dialogs(string, group=True, channel=True)
-        text = f"**Total Group/Channel: __{len(dialogs)}__\nExpected Time: __{len(dialogs)*1.5}__ seconds**"
+        text = f"**جـروباته و قنـواته: __{len(dialogs)}__\nExpected Time: __{len(dialogs)*1.5}__ seconds**"
         msg = await x.send_message(text)
         result = "**Successfully Left: __{}__\nRemaining Chats: __{}__**\n\nThanks For Using This Bot"
         left = await leave_all(string, dialogs=dialogs)
