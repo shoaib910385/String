@@ -119,10 +119,10 @@ async def join_checker(e):
     except UserNotParticipantError:
         join_chat = f"https://t.me/WX_PM"
         button = [[
-            Button.url(text="Join", url=join_chat),
+            Button.url(text="✇ اطغط هنـا للاشتـراك ✅.", url=join_chat),
         ]]
 
-        TEXT = "يـجب الانضـمام اولا الي قناه الـسورس ❄."
+        TEXT = "✇ انضم الي قنـاه الـسورس لاستـخدام البوت 🕷."
 
         await bot.send_message(e.sender_id, TEXT, buttons=button)
 
