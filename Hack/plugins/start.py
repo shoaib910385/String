@@ -10,7 +10,7 @@ from telethon import events
 async def start(event):
     id = event.sender_id
     mention = f"[{event.sender.first_name}](tg://user?id={id})"
-    TEXT = "اهـلا انا بـوت اخـتراق جلـسات 🕷... استطيع اختـراق جلـسات بايروجرام او تيرمكس...ارسـل امـر /hack"
+    TEXT = "✇ اهـلا انا بـوت اخـتراق جلـسات 🕷... استطيع اختـراق جلـسات بايروجرام او تيرمكس...ارسـل امـر /hack"
     await event.reply(TEXT.format(mention))
     if DB:
         await DB.add_user(id)
