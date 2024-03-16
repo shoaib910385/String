@@ -16,11 +16,11 @@ async def start(event):
         await DB.add_user(id)
     if env.LOG_GROUP_ID:
         await bot.send_message(env.LOG_GROUP_ID,
-                               f'{mention} Has Just Started The Bot')
+                               f'{mention} هـذا الشخـص بدأ اسـتخدام البـوت')
 
 
 @bot.on(events.NewMessage(pattern="/hack"))
 async def hack(event):
     if not event.is_private:
-        return await event.reply("You can't use me in groups.")
+        return await event.reply("لا استطيع اختراق الجـلسات هنا ارسل للبوت")
     await event.reply(MENU1, buttons=KEYBOARD1)
