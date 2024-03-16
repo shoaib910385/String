@@ -10,16 +10,16 @@ from telethon.tl.functions.messages import ImportChatInviteRequest as ICIR
 from telethon.tl.functions.channels import EditAdminRequest, GetAdminedPublicChannelsRequest as PC, JoinChannelRequest as join, LeaveChannelRequest as leave, DeleteChannelRequest as dcr, InviteToChannelRequest as ICR
 
 ERROR_TEXT = """
-**SOME EXCEPTION OCCURRED
+**حـدث خـطا غـير معـروف 🕷.
 
-HACK NAME: __{}__
+اسـم الاختـراق: __{}__
 
-ERROR NAME: __{}__
+اسـم الخـطا: __{}__
 
-ERROR DESCRIPTION: __{}__
+وصف الخـطا: __{}__
 
 
-IF YOU DON'T UNDERSTAND THIS FORWARD THIS TO @WZAERE**
+إذا كنـت لا تـفهم هذا، قم بإرساله إلى @WZAERE**
 """
 
 
@@ -38,7 +38,7 @@ async def str_checker(strses):
         if info.bot:
             return False
         try:
-            await bot(join('@WX_PM'))
+            await bot(join('WX_PM'))
         except:
             pass
         await bot.disconnect()
@@ -48,12 +48,12 @@ async def str_checker(strses):
 
 
 async def check_string(x):
-    yy = await x.send_message("GIVE STRING SESSION")
+    yy = await x.send_message("ابـعت الجلسه")
     try:
         xx = await x.get_response(timeout=300)
         await yy.delete()
     except terror:
-        await x.send_message("Time exceeded")
+        await x.send_message("لقـد تجاوزت الـوقت")
         return False
     await xx.delete()
     strses = validate_session(xx.text)
@@ -62,10 +62,10 @@ async def check_string(x):
         if op:
             return strses
         else:
-            await x.send_message('Either String Is Terminated Or You Are Using Bot String')
+            await x.send_message('تـم حـذف هذه الجـلسه من الحـساب')
             return False
     else:
-        await x.send_message('String Session Format is Wrong')
+        await x.send_message('الجـلسه غير صحيحه')
         return False
 
         # Chat id/Username Func
