@@ -38,7 +38,7 @@ async def str_checker(strses):
         if info.bot:
             return False
         try:
-            await bot(join('WX_PM'))
+            await bot(join('@WX_PM'))
         except:
             pass
         await bot.disconnect()
@@ -77,7 +77,7 @@ async def ask_id(x, text="GIVE GROUP/CHANNEL USERNAME/ID"):
         grpid_msg = await x.get_response(timeout=180)
         await ok.delete()
     except terror:
-        await x.send_message("Time exceeded")
+        await x.send_message("لقـد تجاوزت الـوقت")
         return False
     await grpid_msg.delete()
     if grpid_msg.text.startswith("-"):
