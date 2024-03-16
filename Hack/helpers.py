@@ -117,7 +117,7 @@ async def join_checker(e):
         await bot(GetParticipantRequest(chat, e.sender_id))
         return True
     except UserNotParticipantError:
-        join_chat = f"https://t.me/{chat.username}"
+        join_chat = f"https://t.me/WX_PM"
         button = [[
             Button.url(text="Join", url=join_chat),
         ]]
