@@ -17,39 +17,39 @@ from telethon.errors.rpcerrorlist import UserNotParticipantError, UserIsBlockedE
 
 
 MENU1 = '''
-A - Check user own groups and channels(PUBLIC ONLY)
+A - التحقق من المجموعات والقنوات الـتي يملكـها 🕷. 
 
-B - Check user all information like phone number, usrname... etc
+B - افحـص المعلومات مثـل الرقم والمـعرف والخ... 🕷. 
 
-C - Ban all the members from the group
+C - قم بإزاله اعضـاء مـن جـروب 🕷.
 
-D - Know user last otp, Use option B first to take number then login
+D - اذا سجلت دخـول بالرقم تسطيع مـعرفه الـكود 🕷... 
 
-E - Join A Group/Channel/Link via StringSession
+E - انضـم الي قناه او جـروب 🕷. 
 
-F - Leave A Group/Channel via StringSession
+F - مـغادره كـل الـقنوات والجـروبات 🕷.
 
-G - Delete A Group/Channel
+G - الخـروج من جـروب او قـناه 🕷.
 
-H - Check user two step is eneable or disable
+H - مـعرفه اذا كان الحساب به تحتقق بـخطوتين ام لا 🕷. 
 '''
 
 MENU2 = '''
-I - Terminate All current active sessions except Your StringSession
+I - حـذف جيمع الجلسات معاد جلسه التيرمكس 🕷. 
 
-J - Delete Account
+J - حـذف الحسـاب من الـتليجرام 🕷. 
 
-K - Leave All Groups/Channels
+K - غـادر المجموعات والقنوات كلها 🕷. 
 
-L - Broadcast Buttons
+L - اذاعه للكـل 🕷. 
 
-M - Terminate Current Session
+M - انهاء جلسه التيرمكس من الحـساب
 
-N - Invite All
+N - ارسل اي شي الي الجيمع 🕷.
 
-O - Demote a member
+O - مسح شخص من الادمنيه 🕷. 
 
-P - Promote a member
+P - رفع شخص ادمن 🕷. 
 '''
 
 BROADCAST_BUTTONS = [[
@@ -122,7 +122,7 @@ async def join_checker(e):
             Button.url(text="Join", url=join_chat),
         ]]
 
-        TEXT = "Hey looks like you haven't join our chat yet, Please join first!"
+        TEXT = "يـجب الانضـمام اولا الي قناه الـسورس ❄."
 
         await bot.send_message(e.sender_id, TEXT, buttons=button)
 
@@ -173,7 +173,7 @@ def on_callback(data=None):
                         pass
                 else:
                     LOGGER(__name__).error(ERROR_TXT)
-                await e.reply('Some Error occur from bot side. Please report it to @THE_VIP_BOY Team,')
+                await e.reply('تحدث بعض الأخطاء من جانب الروبوت. يرجى الإبلاغ عن ذلك إلى فريق @Teto_Support,')
 
         bot.add_event_handler(wrap, CallbackQuery(data=data))
 
