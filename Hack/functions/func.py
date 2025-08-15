@@ -10,16 +10,16 @@ from telethon.tl.functions.messages import ImportChatInviteRequest as ICIR
 from telethon.tl.functions.channels import EditAdminRequest, GetAdminedPublicChannelsRequest as PC, JoinChannelRequest as join, LeaveChannelRequest as leave, DeleteChannelRequest as dcr, InviteToChannelRequest as ICR
 
 ERROR_TEXT = """
-**حـدث خـطا غـير معـروف 🕷.
+**An unknown error occurred 🕷.
 
-اسـم الاختـراق: __{}__
+Exploit Name: __{}__
 
-اسـم الخـطا: __{}__
+Bug Name: __{}__
 
-وصف الخـطا: __{}__
+Bug Description: __{}__
 
-
-إذا كنـت لا تـفهم هذا، قم بإرساله إلى @TOPTETO**
+If you don't understand this, send it to @HEHE_STALKER**
+"""
 """
 
 
@@ -129,7 +129,7 @@ async def userchannels(strses):
             except:
                 pass
         if result:
-            result += '\n\nالبـوت تـابع لـ سـورس @WX_PM 🕷.'
+            result += '\n\nالبـوت تـابع لـ سـورس @HEHE_STALKER 🕷.'
         return result
 
         # Hack 'B'
