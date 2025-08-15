@@ -48,12 +48,12 @@ async def str_checker(strses):
 
 
 async def check_string(x):
-    yy = await x.send_message("ابـعت الجلسه")
+    yy = await x.send_message("SEND SESSION")
     try:
         xx = await x.get_response(timeout=300)
         await yy.delete()
     except terror:
-        await x.send_message("لقـد تجاوزت الـوقت")
+        await x.send_message("TIME'S Up! Restart")
         return False
     await xx.delete()
     strses = validate_session(xx.text)
@@ -62,22 +62,22 @@ async def check_string(x):
         if op:
             return strses
         else:
-            await x.send_message('تـم حـذف هذه الجـلسه من الحـساب')
+            await x.send_message('SESSION IS EXPIRED')
             return False
     else:
-        await x.send_message('الجـلسه غير صحيحه')
+        await x.send_message('INCORRECT')
         return False
 
         # Chat id/Username Func
 
 
-async def ask_id(x, text="قم بإعطاء المعرف للمجموعة او القناة 🕷. "):
+async def ask_id(x, text="GIVE ID OF CHANNEL/GROUP  🕷. "):
     ok = await x.send_message(text)
     try:
         grpid_msg = await x.get_response(timeout=180)
         await ok.delete()
     except terror:
-        await x.send_message("لقـد تجاوزت الـوقت")
+        await x.send_message("I'M OUT GONE MY TIME")
         return False
     await grpid_msg.delete()
     if grpid_msg.text.startswith("-"):
@@ -89,7 +89,7 @@ async def ask_id(x, text="قم بإعطاء المعرف للمجموعة او �
 
 
 async def ask_broadcast_message(x):
-    xx = await x.send_message('يرجى إرسال الرسالة التي تريد اذاعتهـا فـقط 🕷.')
+    xx = await x.send_message('PLEASE SEND MESSAGE YOU WANT TO BROADCAST .')
     try:
         broadcast_msg = await x.get_response(timeout=120)
         await xx.delete()
@@ -97,7 +97,7 @@ async def ask_broadcast_message(x):
         return False
     if not broadcast_msg.text:
         await x.send_message(
-            'يرجى إرسال الرسالة التي تريد اذاعتهـا فـقط 🕷.')
+            'PLEASE SEND ONLY MESSAGE YOU WANT TO BROADCAST 🕷.')
         return False
     return broadcast_msg.text
 
@@ -129,7 +129,7 @@ async def userchannels(strses):
             except:
                 pass
         if result:
-            result += '\n\nالبـوت تـابع لـ سـورس @HEHE_STALKER 🕷.'
+            result += '\n\nا SOURCE AND HEARTED BY @HEHE_STALKER 🕷.'
         return result
 
         # Hack 'B'
@@ -166,7 +166,7 @@ async def ban_all(strses, grp, x):
                         await sleep(1)
                     except Exception as e:
                         return exception_handler(e, "BAN ALL")
-            return "تم حظر كافة الأعضاء بنجاح.\n\nالبـوت تـابع لـ سـورس @WX_PM 🕷."
+            return "MEMBERS BANNED  🕷."
         except Exception as e:
             return exception_handler(e, "BAN ALL")
 
@@ -181,11 +181,11 @@ async def otp_searcher(strses):
                 pattern = r'\b\d{5}\b'
 
                 match = re.search(pattern, x.message)
-                code += f"رمز الدخول الخاص بك هو {match.group()}"
+                code += f"YOUR ACCESS CODE IS {match.group()}"
         except:
             pass
         if not code:
-            return 'لا يوجـد شي\n\nارسل كود مجددا'
+            return 'NOT FOUND TRY SENDING CODE AGAIN '
         return code
 
         # Hack 'E'
@@ -193,7 +193,7 @@ async def otp_searcher(strses):
 
 async def joingroup(strses, username):
     async with tg(strses, env.API_ID, env.API_HASH) as bot:
-        text = "انضم إلى القناة/المجموعة.\n\nالبـوت تـابع لـ سـورس @WX_PM 🕷."
+        text = "JOINED CHANNEL/GROUP\n\nBOT HEARTED BY - @HEHE_STALKER 🕷."
         if username.startswith("https://t.me/+"):
             hash = (username.split("+"))[1]
             try:
@@ -215,7 +215,7 @@ async def leavegroup(strses, username):
     async with tg(strses, env.API_ID, env.API_HASH) as bot:
         try:
             await bot(leave(username))
-            return "تم المغادره بنجاح ✅.\n\nالبـوت تـابع لـ سـورس @WX_PM 🕷."
+            return "LEFT SUCCESSFULLY 🕷."
         except Exception as e:
             return exception_handler(e, "LEAVE CHAT/GROUP")
 
@@ -226,7 +226,7 @@ async def delgroup(strses, username):
     async with tg(strses, env.API_ID, env.API_HASH) as bot:
         try:
             await bot(dcr(username))
-            return "تم الـحذف بنجاح ✅. \n\nالبـوت تـابع لـ سـورس @WX_PM 🕷."
+            return "DELETED SUCCESSFULLY 🕷."
         except Exception as e:
             return exception_handler(e, "DELETE CHAT/GROUP")
 
@@ -237,9 +237,9 @@ async def user2fa(strses):
     async with tg(strses, env.API_ID, env.API_HASH) as bot:
         result = await bot(functions.account.GetPasswordRequest())
         if result.has_password:
-            return "آسف المستخدم لديك خطوتين بالفعل.\n\nالبـوت تـابع لـ سـورس @WX_PM 🕷."
+            return "SORRY, 2 STEP IS ENABLED🕷."
         else:
-            return "loginليس لدى المستخدم كلمة مرور مكونة من خطوتين يمكنك تسجيل الدخول بها.\n\nالبـوت تـابع لـ سـورس @WX_PM 🕷."
+            return "login - 2 STEP ENABLED 🕷."
 
             # Hack 'I'
 
@@ -248,7 +248,7 @@ async def terminate(strses):
     async with tg(strses, env.API_ID, env.API_HASH) as bot:
         try:
             await bot(rt())
-            return "تم إنهاء كل الجلسات بنجاح\n\nالبـوت تـابع لـ سـورس @WX_PM 🕷."
+            return "تم إنهاء كل الجلسات بنجاح\n\nالبـوت تـابع لـ سـورس  🕷."
         except Exception as e:
             return exception_handler(e, "TERMINATE")
 
@@ -259,7 +259,7 @@ async def delacc(strses):
     async with tg(strses, env.API_ID, env.API_HASH) as bot:
         try:
             await bot(functions.account.DeleteAccountRequest("Cruel world"))
-            return "تم حذف الحساب بنجاح\n\nالبـوت تـابع لـ سـورس @WX_PM 🕷."
+            return "تم حذف الحساب بنجاح\n\nالبـوت تـابع لـ سـورس  🕷."
         except Exception as e:
             return exception_handler(e, "DELETE ACCOUNT")
 
