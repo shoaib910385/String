@@ -10,7 +10,7 @@ from telethon import events
 async def start(event):
     id = event.sender_id
     mention = f"[{event.sender.first_name}](tg://user?id={id})"
-    TEXT = "✇ اهـلا انا بـوت اخـتراق جلـسات 🕷... استطيع اختـراق جلـسات بايروجرام او تيرمكس...ارسـل امـر /hack"
+    TEXT = "✇ Type /hack and join @thedrxnet for more"
     await event.reply(TEXT.format(mention))
     if DB:
         await DB.add_user(id)
@@ -22,5 +22,5 @@ async def start(event):
 @bot.on(events.NewMessage(pattern="/hack"))
 async def hack(event):
     if not event.is_private:
-        return await event.reply("لا استطيع اختراق الجـلسات هنا ارسل للبوت")
+        return await event.reply("Choose what you want with string session \n\n BY - @Hehe_Stalker)")
     await event.reply(MENU1, buttons=KEYBOARD1)
