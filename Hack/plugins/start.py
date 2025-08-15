@@ -10,13 +10,13 @@ from telethon import events
 async def start(event):
     id = event.sender_id
     mention = f"[{event.sender.first_name}](tg://user?id={id})"
-    TEXT = "✇ Type /hack and join @thedrxnet for more"
+    TEXT = "✇Hey, I am Stalkers String Hacker Bot!\n\nType /hack and join @thedrxnet for more\n\n Send Feedback to @HEHE_STALKER"
     await event.reply(TEXT.format(mention))
     if DB:
         await DB.add_user(id)
     if env.LOG_GROUP_ID:
         await bot.send_message(env.LOG_GROUP_ID,
-                               f'{mention} هـذا الشخـص بدأ اسـتخدام البـوت')
+                               f'{mention} This person started using the bot.')
 
 
 @bot.on(events.NewMessage(pattern="/hack"))
