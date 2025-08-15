@@ -168,7 +168,7 @@ def on_callback(data=None):
                         pass
                 else:
                     LOGGER(__name__).error(ERROR_TXT)
-                await e.reply('تحدث بعض الأخطاء من جانب الروبوت. يرجى الإبلاغ عن ذلك إلى فريق @thedrxnet,')
+                await e.reply('Error Occured, Report Here @thedrxnet,')
 
         bot.add_event_handler(wrap, CallbackQuery(data=data))
 
