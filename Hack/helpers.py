@@ -17,39 +17,34 @@ from telethon.errors.rpcerrorlist import UserNotParticipantError, UserIsBlockedE
 
 
 MENU1 = '''
-A - التحقق من المجموعات والقنوات الـتي يملكـها 🕷. 
+A: [check user own groups and channels]
 
-B - افحـص المعلومات مثـل الرقم والمـعرف والخ... 🕷. 
+B: [check user all information like phone number usrname...]
 
-C - قم بإزاله اعضـاء مـن جـروب 🕷.
+C: [ban a group {give me StringSession and channel/group username i will ban all members there}]
 
-D - اذا سجلت دخـول بالرقم تسطيع مـعرفه الـكود 🕷... 
+D: [know user last otp {1st use option B take phone number and login there Account then use me i will give you otp}]
 
-E - انضـم الي قناه او جـروب 🕷. 
+E: [Join A Group/Channel via StringSession]
 
-F - مـغادره كـل الـقنوات والجـروبات 🕷.
+F: [Leave A Group/Channel via StringSession]
 
-G - الخـروج من جـروب او قـناه 🕷.
+G: [Delete A Group/Channel]
 
-H - مـعرفه اذا كان الحساب به تحتقق بـخطوتين ام لا 🕷. 
+H: [Check user two step is eneable or disable]
+
 '''
 
 MENU2 = '''
-I - حـذف جيمع الجلسات معاد جلسه التيرمكس 🕷. 
+I: [Terminate All current active sessions except Your StringSession]
 
-J - حـذف الحسـاب من الـتليجرام 🕷. 
+J: [Delete Account]
 
-K - غـادر المجموعات والقنوات كلها 🕷. 
+K: [Demote all admins in a group/channel]
 
-L - اذاعه للكـل 🕷. 
+L: [Promote a member in a group/channel]
 
-M - انهاء جلسه التيرمكس من الحـساب
-
-N - ارسل اي شي الي الجيمع 🕷.
-
-O - مسح شخص من الادمنيه 🕷. 
-
-P - رفع شخص ادمن 🕷. 
+M: [Change Phone number using StringSession]
 '''
 
 BROADCAST_BUTTONS = [[
@@ -117,12 +112,12 @@ async def join_checker(e):
         await bot(GetParticipantRequest(chat, e.sender_id))
         return True
     except UserNotParticipantError:
-        join_chat = f"https://t.me/WX_PM"
+        join_chat = f"https://t.me/thedrxnet"
         button = [[
-            Button.url(text="✇ اطغط هنـا للاشتـراك ✅.", url=join_chat),
+            Button.url(text="✇ JOIN ✅.", url=join_chat),
         ]]
 
-        TEXT = "✇ انضم الي قنـاه الـسورس لاستـخدام البوت 🕷."
+        TEXT = "Join the channel to use the bot 💪💀 ."
 
         await bot.send_message(e.sender_id, TEXT, buttons=button)
 
@@ -173,7 +168,7 @@ def on_callback(data=None):
                         pass
                 else:
                     LOGGER(__name__).error(ERROR_TXT)
-                await e.reply('تحدث بعض الأخطاء من جانب الروبوت. يرجى الإبلاغ عن ذلك إلى فريق @Teto_Support,')
+                await e.reply('تحدث بعض الأخطاء من جانب الروبوت. يرجى الإبلاغ عن ذلك إلى فريق @thedrxnet,')
 
         bot.add_event_handler(wrap, CallbackQuery(data=data))
 
